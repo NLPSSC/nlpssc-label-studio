@@ -67,7 +67,6 @@ dependencies = [
     "google-cloud-logging>=3.10.0,<4.0.0",
     "django-csp==3.7",
     "openai>=1.10.0,<2.0.0",
-    "label-studio-sdk",
 ]
 
 [project.optional-dependencies]
@@ -218,9 +217,6 @@ label_studio = [
     "core/all_urls.json",
     "io_storages/**/*.yml",
 ]
-
-[tool.uv.sources]
-label-studio-sdk = { path = "packages/label-studio-sdk-0b7ece0554de291d05d446ea5240e56724e384e8/label-studio-sdk-0b7ece0554de291d05d446ea5240e56724e384e8" }
 
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
