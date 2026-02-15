@@ -46,8 +46,9 @@ def install_node(c):
         c.run(f"nvm use {NODE_VERSION}")
         c.run(f'echo "{NODE_VERSION}" > .nvmrc')
         c.run("npm install --global npm")  # Update npm to latest version
+        c.run("npm i -g uv")
         c.run("npm i -g cross-env")
-        c.run(">npm i -g yarn")
+        c.run("npm i -g yarn")
     else:
         print(
             f"Node.js is already installed and correct version ({NODE_VERSION}). Skipping installation."
@@ -99,6 +100,7 @@ def install_sqlite3_dll(c):
 @task(pre=[install_sqlite3_dll, install_web])
 def setup(c):
     # Install dependencies
+    
     c.run("uv sync")
 
     # label-studio-sdk setup
@@ -145,6 +147,9 @@ def setup(c):
     # install label-studio
     c.run("uv pip install -e .")
 
+    # Build static for web???
+    c.run("python label_studio/manage.py collectstatic --noinput")
+
 
 @task
 def setup_env_vars(c):
@@ -179,4 +184,4 @@ def setup_env_vars(c):
 
 @task
 def run(c):
-    c.run("uv run label-studio")
+    c.run("label-studio")
