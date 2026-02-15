@@ -83,3 +83,5 @@ docker-compose.override.yml
 packages/label-studio-sdk-0b7ece0554de291d05d446ea5240e56724e384e8.zip
 
 .venv/
+
+label-studio-sdk-0b7ece0554de291d05d446ea5240e56724e384e8/

@@ -220,8 +220,16 @@ label_studio = [
 ]
 
 [tool.uv.sources]
-label-studio-sdk = { path = "packages/label-studio-sdk-0b7ece0554de291d05d446ea5240e56724e384e8.zip" }
+label-studio-sdk = { path = "packages/label-studio-sdk-0b7ece0554de291d05d446ea5240e56724e384e8/label-studio-sdk-0b7ece0554de291d05d446ea5240e56724e384e8" }
 
 [build-system]
 requires = ["setuptools>=61.0", "wheel"]
 build-backend = "setuptools.build_meta"
+
+[dependency-groups]
+dev = [
+    "setuptools<70",
+]
+tasks = [
+    "invoke>=2.2.1",
+]
